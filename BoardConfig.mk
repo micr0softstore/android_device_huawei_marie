@@ -94,3 +94,4 @@ TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/Battery
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
 # MTP will not work until we update it to support ffs
 TW_EXCLUDE_MTP := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
