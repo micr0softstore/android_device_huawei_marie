@@ -47,7 +47,7 @@ TARGET_KERNEL_SOURCE := kernel/huawei/generic_a15
 # Kernel - prebuilt
 TARGET_FORCE_PREBUILT_KERNEL := true
 ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/dummykernel
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/dummykernel
 endif
 
 # SELinux
