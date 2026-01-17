@@ -1,4 +1,4 @@
-# Android device tree for Huawei generic_a15 (generic_a15)
+# TWRP Device Tree for Huawei P30 Lite (Marie, MAR) hisi710
 
 ```
 #
