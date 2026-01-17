@@ -29,7 +29,7 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := generic
 OVERRIDE_TARGET_FLATTEN_APEX := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := kirin710
+TARGET_BOOTLOADER_BOARD_NAME := KIRIN
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
@@ -47,7 +47,7 @@ TARGET_KERNEL_SOURCE := kernel/huawei/generic_a15
 # Kernel - prebuilt
 TARGET_FORCE_PREBUILT_KERNEL := true
 ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/dummykernel
 endif
 
 # Partitions
@@ -62,7 +62,8 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Platform
-TARGET_BOARD_PLATFORM := default
+TARGET_BOARD_PLATFORM := generic
+TARGET_BOARD_PLATFORM_GPU := kirin
 
 # Recovery
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -80,3 +81,14 @@ TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_BRIGHTNESS_PATH := /sys/class/leds/lcd_backlight0/brightness
+TW_NO_HAPTICS := true
+TW_NO_SCREEN_BLANK := true
+TW_DEFAULT_BRIGHTNESS := "2048"
+TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/Battery
+# Device crashes if /sbin/modprobe is present so this is needed:
+BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
+# MTP will not work until we update it to support ffs
+TW_EXCLUDE_MTP := true
