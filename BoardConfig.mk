@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/huawei/generic_a15
+DEVICE_PATH := device/huawei/marie
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -68,8 +68,6 @@ TARGET_BOARD_PLATFORM := default
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-# Security patch level
-VENDOR_SECURITY_PATCH := 2021-08-01
 
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
