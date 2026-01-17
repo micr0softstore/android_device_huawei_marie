@@ -1,0 +1,18 @@
+allow tee rootfs:file entrypoint;
+
+# Allow teecd to map its execution binary labeled as rootfs
+allow tee rootfs:file map;
+
+# Fixes the repeated "denied { read }" and "denied { map }" for teecd
+allow tee rootfs:file { read getattr map execute entrypoint open };
+
+# Allow teecd to read/write the TEE device node (tc_ns_client)
+allow tee device:chr_file { read write open ioctl };
+
+# Allow teecd to search the /bin directory in rootfs
+allow tee rootfs:dir { read open search getattr };
+
+# Allow teecd to search partitions that haven't been labeled yet
+allow tee unlabeled:dir { search getattr open read };
+
+init_daemon_domain(tee)
