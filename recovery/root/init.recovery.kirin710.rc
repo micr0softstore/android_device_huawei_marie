@@ -11,6 +11,11 @@ on late-init
     setprop sys.usb.configfs 1
     setprop sys.usb.config adb
 
+service fixlinks /sbin/fixlinks.sh
+    oneshot
+    disabled
+    seclabel u:r:recovery:s0
+
 service oeminfo_nvm /sbin/true
     disabled
 
