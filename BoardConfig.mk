@@ -61,7 +61,7 @@ BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 # Dynamic partitions (super)
 BOARD_SUPER_PARTITION_SIZE := 5771493376 # 5.5GB (5771362304+131072)
 BOARD_SUPER_PARTITION_GROUPS := huawei_dynamic_partitions
-BOARD_HUAWEI_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product hw_product system system_ext vendor cust
+BOARD_HUAWEI_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_ext vendor
 BOARD_HUAWEI_DYNAMIC_PARTITIONS_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_SIZE) - 4194304)
 
 # Platform
