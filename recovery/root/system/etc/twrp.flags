@@ -26,18 +26,17 @@
 /modem_secure		emmc		/dev/block/platform/hi_mci.0/by-name/modem_secure         flags=backup=1;display="Modem_Secure"
 
 # Direct image flashing partitions
-/super                          emmc            /dev/block/platform/hi_mci.0/by-name/super	 
-/system_image             emmc        /dev/block/mapper/system                                      flags=display="System image";backup=1;flashimg=1
-/vendor_image             emmc        /dev/block/mapper/vendor                                      flags=display="Vendor image";backup=1;flashimg=1
-/odm_image                emmc        /dev/block/mapper/odm                                         flags=display="ODM image";backup=1;flashimg=1
-/cust_image               emmc        /dev/block/mapper/cust                                        flags=display="Cust image";backup=1;flashimg=1
-/product_image               emmc        /dev/block/mapper/product                                        flags=display="Product image";backup=1;flashimg=1
+/system_image             emmc        /dev/block/platform/hi_mci.0/by-name/system                                      flags=display="System image";backup=1;flashimg=1
+/vendor_image             emmc        /dev/block/platform/hi_mci.0/by-name/vendor                                      flags=display="Vendor image";backup=1;flashimg=1
+/odm_image                emmc        /dev/block/platform/hi_mci.0/by-name/odm                                         flags=display="ODM image";backup=1;flashimg=1
+/cust_image               emmc        /dev/block/platform/hi_mci.0/by-name/cust                                        flags=display="Cust image";backup=1;flashimg=1
+/product_image               emmc        /dev/block/platform/hi_mci.0/by-name/product                                        flags=display="Product image";backup=1;flashimg=1
 
 # System partitions (leave them as ext4 for now)
-/system_root				ext4		/dev/block/mapper/system                  flags=display="System";backup=1;wipeingui
-/vendor				ext4		/dev/block/mapper/vendor                  flags=display="Vendor";backup=1;wipeingui
-/odm				ext4		/dev/block/mapper/odm                     flags=display="ODM";backup=1;wipeingui
-/product			ext4        /dev/block/mapper/product                 flags=display="Product";backup=1;wipeingui
+/system_root				ext4		/dev/block/platform/hi_mci.0/by-name/system                  flags=display="System";backup=1;wipeingui
+/vendor				ext4		/dev/block/platform/hi_mci.0/by-name/vendor                  flags=display="Vendor";backup=1;wipeingui
+/odm				ext4		/dev/block/platform/hi_mci.0/by-name/odm                     flags=display="ODM";backup=1;wipeingui
+/product			ext4        /dev/block/platform/hi_mci.0/by-name/product                 flags=display="Product";backup=1;wipeingui
 
 # Removable storage
 /usb_otg			auto 		/dev/block/sde1                    /dev/block/sde             flags=fsflags=utf8;display="USB OTG";storage;wipeingui;removable
