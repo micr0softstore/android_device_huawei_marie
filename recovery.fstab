@@ -1,44 +1,24 @@
-# Android fstab file.
-# The filesystem that contains the filesystem checker binary (typically /system) cannot
-# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
-
-# mount point  fstype device                             device2              	flags
-/kernel				emmc		/dev/block/platform/hi_mci.0/by-name/kernel  	              flags=display="Kernel";backup=1;flashimg=1
-/ramdisk			emmc		/dev/block/platform/hi_mci.0/by-name/ramdisk            flags=display="Ramdisk";backup=1;flashimg=1
-/recovery_ramdisk   emmc        /dev/block/platform/hi_mci.0/by-name/recovery_ramdisk   flags=display="Recovery_Ramdisk";backup=1;flashimg=1
-/recovery_vendor    emmc        /dev/block/platform/hi_mci.0/by-name/recovery_vendor   flags=display="Recovery_Vendor";backup=1;flashimg=1
-/erecovery_ramdisk   emmc        /dev/block/platform/hi_mci.0/by-name/erecovery_ramdisk   flags=display="eRecovery_Ramdisk";backup=1;flashimg=1
-/erecovery_vendor    emmc        /dev/block/platform/hi_mci.0/by-name/erecovery_vendor   flags=display="eRecovery_Vendor";backup=1;flashimg=1
-/data                           f2fs            /dev/block/platform/hi_mci.0/by-name/userdata             flags=display="Data";backup=1
-/dts				emmc		/dev/block/platform/hi_mci.0/by-name/dts	              flags=display="DTS";backup=1;flashimg=1
-/dto				emmc		/dev/block/platform/hi_mci.0/by-name/dto	              flags=display="DTO";backup=1;flashimg=1
-/persist		        emmc		/dev/block/platform/hi_mci.0/by-name/persist              flags=display="Persist";backup=1;flashimg=1
-/vbmeta				emmc		/dev/block/platform/hi_mci.0/by-name/vbmeta	              flags=display="VBMeta";backup=1;flashimg=1
-/cache              ext4        /dev/block/platform/hi_mci.0/by-name/cache                flags=display="Cache";backup=1
-
-# Crucial read-only partitions
-/erecovery_kernel   emmc        /dev/block/platform/hi_mci.0/by-name/erecovery_kernel     flags=display="eRecovery_Kernel";backup=1;flashimg=1
-/oeminfo            emmc        /dev/block/platform/hi_mci.0/by-name/oeminfo              flags=display="OEMInfo";backup=1;flashimg=1
-/nvme               emmc        /dev/block/platform/hi_mci.0/by-name/nvme                 flags=display="NVMe";backup=1
-/modemnvm_update    emmc        /dev/block/platform/hi_mci.0/by-name/modemnvm_update      flags=display="ModemNVM_Update";backup=1
-/modemnvm_cust      emmc        /dev/block/platform/hi_mci.0/by-name/modemnvm_cust        flags=display="ModemNVM_Cust";backup=1
-/modem_fw			emmc		/dev/block/platform/hi_mci.0/by-name/modem_fw	          flags=backup=1;display="Modem_FW"
-/modem_secure		emmc		/dev/block/platform/hi_mci.0/by-name/modem_secure         flags=backup=1;display="Modem_Secure"
-
-# Direct image flashing partitions
-/system_image             emmc        /dev/block/mapper/system                                      flags=logical;display="System image";backup=1;flashimg=1
-/vendor_image             emmc        /dev/block/mapper/vendor                                      flags=logical;display="Vendor image";backup=1;flashimg=1
-/odm_image                emmc        /dev/block/mapper/odm                                         flags=logical;display="ODM image";backup=1;flashimg=1
-/cust_image               emmc        /dev/block/mapper/cust                                        flags=logical;display="Cust image";backup=1;flashimg=1
-/product_image               emmc        /dev/block/mapper/product                                        flags=logical;display="Product image";backup=1;flashimg=1
-/super_image               emmc        /dev/block/platform/hi_mci.0/by-name/super                                       flags=logical;display="Super image";backup=1;flashimg=1
-
-# System partitions (leave them as ext4 for now)
-/system_root				ext4		/dev/block/mapper/system                  flags=display=logical;"System";backup=1;wipeingui
-/vendor				ext4		/dev/block/mapper/vendor                  flags=display=logical;"Vendor";backup=1;wipeingui
-/odm				ext4		/dev/block/mapper/odm                     flags=display=logical;"ODM";backup=1;wipeingui
-/product			ext4        /dev/block/mapper/product                 flags=display=logical;"Product";backup=1;wipeingui
-
-# Removable storage
-/usb_otg			auto 		/dev/block/sde1                    /dev/block/sde             flags=fsflags=utf8;display="USB OTG";storage;wipeingui;removable
-/external_sd		auto 		/dev/block/mmcblk1p1               /dev/block/mmcblk1         flags=fsflags=utf8;display="Micro SD Card";storage;wipeingui;removable
+# blk_device                                    mount_point fs_type
+/dev/block/mmcblk1p1                            /external_sd     vfat      defaults        defaults
+#defaults                                        /storage    ramdisk   defaults        defaults
+#defaults                                        /dload      ramdisk   defaults        defaults
+/dev/block/bootdevice/by-name/system     /system     ext4      defaults        defaults
+/dev/block/bootdevice/by-name/vendor     /vendor     ext4      defaults        defaults
+/dev/block/bootdevice/by-name/hw_product /hw_product ext4      defaults        defaults
+/dev/block/bootdevice/by-name/version    /version    ext4      defaults        defaults
+/dev/block/bootdevice/by-name/cache      /cache      ext4      defaults        defaults
+/dev/block/bootdevice/by-name/userdata   /data       f2fs      defaults        length=-16384,fileencryption=aes-256-xts:aes-256-cts,reservedsize=20M
+/dev/block/bootdevice/by-name/misc       /misc       emmc      defaults        defaults
+/dev/block/bootdevice/by-name/boot       /boot       emmc      defaults        defaults
+/dev/block/bootdevice/by-name/recovery   /recovery   emmc      defaults        defaults
+/dev/block/bootdevice/by-name/cust       /cust       ext4      defaults        defaults
+/dev/block/bootdevice/by-name/uboot      /uboot      emmc      defaults        defaults
+/dev/block/bootdevice/by-name/splash2    /splash2    ext4      defaults        defaults
+/dev/block/bootdevice/by-name/3rdmodem   /3rdmodem   ext4      defaults        defaults
+/dev/block/bootdevice/by-name/system     /newsys     ext4      defaults        defaults
+/dev/block/sde1                          /usb        vfat      defaults        defaults
+/dev/block/sde1                          /usb_ufs    vfat      defaults        defaults
+/dev/block/sda1                          /usb_emmc   vfat      defaults        defaults
+/dev/block/by-name/modem_om    /modem_log    ext4    rw,noauto_da_alloc,nosuid,nodev,noatime,data=ordered,barrier=1,context=u:object_r:modem_log_file:s0    wait,check
+/dev/block/by-name/modem_fw    /modem_fw    ext4    defaults        defaults
+/dev/block/by-name/modemnvm_img    /mnvm2:0    ext4   rw,noauto_da_alloc,nosuid,nodev,noatime,data=ordered,barrier=1,context=u:object_r:modem_nv_file:s0   wait,check,notrim
