@@ -3,41 +3,41 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 # mount point  fstype device                             device2              	flags
-/kernel				emmc		/dev/block/platform/ff3c0000.ufs/by-name/kernel  	              flags=slotselect;display="Kernel";backup=1;flashimg=1
-/ramdisk			emmc		/dev/block/platform/ff3c0000.ufs/by-name/ramdisk            flags=slotselect;display="Ramdisk";backup=1;flashimg=1
-/recovery_ramdisk   emmc        /dev/block/platform/ff3c0000.ufs/by-name/recovery_ramdisk   flags=slotselect;display="Recovery_Ramdisk";backup=1;flashimg=1
-/recovery_vendor    emmc        /dev/block/platform/ff3c0000.ufs/by-name/recovery_vendor   flags=slotselect;display="Recovery_Vendor";backup=1;flashimg=1
-/erecovery_ramdisk   emmc        /dev/block/platform/ff3c0000.ufs/by-name/erecovery_ramdisk   flags=slotselect;display="eRecovery_Ramdisk";backup=1;flashimg=1
-/erecovery_vendor    emmc        /dev/block/platform/ff3c0000.ufs/by-name/erecovery_vendor   flags=slotselect;display="eRecovery_Vendor";backup=1;flashimg=1
-/data                           f2fs            /dev/block/platform/ff3c0000.ufs/by-name/userdata             flags=fileencryption=:aes-256-hctr2:inlinecrypt_optimized+wrappedkey_v0,metadata_encryption=:wrappedkey_v0,keydirectory=/metadata/vold/metadata_encryption
-/dts				emmc		/dev/block/platform/ff3c0000.ufs/by-name/dts	              flags=slotselect;display="DTS";backup=1;flashimg=1
-/dto				emmc		/dev/block/platform/ff3c0000.ufs/by-name/dto	              flags=slotselect;display="DTO";backup=1;flashimg=1
-/persist		        emmc		/dev/block/platform/ff3c0000.ufs/by-name/persist              flags=slotselect;display="Persist";backup=1;flashimg=1
-/misc                           emmc            /dev/block/platform/ff3c0000.ufs/by-name/misc
-/super                          emmc            /dev/block/platform/ff3c0000.ufs/by-name/super	              flags=slotselect;display="Super";backup=1;flashimg=1
-/vbmeta				emmc		/dev/block/platform/ff3c0000.ufs/by-name/vbmeta	              flags=slotselect;display="VBMeta";backup=1;flashimg=1
-/vbmeta_system				emmc		/dev/block/platform/ff3c0000.ufs/by-name/vbmeta_system	              flags=slotselect;display="VBMeta_System";backup=1;flashimg=1
-/vbmeta_vendor				emmc		/dev/block/platform/ff3c0000.ufs/by-name/vbmeta_vendor	              flags=slotselect;display="VBMeta_Vendor";backup=1;flashimg=1
-/vbmeta_odm				emmc		/dev/block/platform/ff3c0000.ufs/by-name/vbmeta_odm	              flags=slotselect;display="VBMeta_ODM";backup=1;flashimg=1
-/vbmeta_hw_product				emmc		/dev/block/platform/ff3c0000.ufs/by-name/vbmeta_hw_product	              flags=slotselect;display="VBMeta_HW_Product";backup=1;flashimg=1
-/cache              emmc        /dev/block/platform/ff3c0000.ufs/by-name/cache                flags=slotselect;display="Cache";backup=1;flashimg=1
+/kernel				emmc		/dev/block/platform/hi_mci.0/by-name/kernel  	              flags=display="Kernel";backup=1;flashimg=1
+/ramdisk			emmc		/dev/block/platform/hi_mci.0/by-name/ramdisk            flags=display="Ramdisk";backup=1;flashimg=1
+/recovery_ramdisk   emmc        /dev/block/platform/hi_mci.0/by-name/recovery_ramdisk   flags=display="Recovery_Ramdisk";backup=1;flashimg=1
+/recovery_vendor    emmc        /dev/block/platform/hi_mci.0/by-name/recovery_vendor   flags=display="Recovery_Vendor";backup=1;flashimg=1
+/erecovery_ramdisk   emmc        /dev/block/platform/hi_mci.0/by-name/erecovery_ramdisk   flags=display="eRecovery_Ramdisk";backup=1;flashimg=1
+/erecovery_vendor    emmc        /dev/block/platform/hi_mci.0/by-name/erecovery_vendor   flags=display="eRecovery_Vendor";backup=1;flashimg=1
+/data                           f2fs            /dev/block/platform/hi_mci.0/by-name/userdata             flags=display="Data";backup=1
+/dts				emmc		/dev/block/platform/hi_mci.0/by-name/dts	              flags=display="DTS";backup=1;flashimg=1
+/dto				emmc		/dev/block/platform/hi_mci.0/by-name/dto	              flags=display="DTO";backup=1;flashimg=1
+/persist		        emmc		/dev/block/platform/hi_mci.0/by-name/persist              flags=display="Persist";backup=1;flashimg=1
+/vbmeta				emmc		/dev/block/platform/hi_mci.0/by-name/vbmeta	              flags=display="VBMeta";backup=1;flashimg=1
+/cache              ext4        /dev/block/platform/hi_mci.0/by-name/cache                flags=display="Cache";backup=1
 
 # Crucial read-only partitions
-/erecovery_kernel   emmc        /dev/block/platform/ff3c0000.ufs/by-name/erecovery_kernel     flags=slotselect;display="eRecovery_Kernel";backup=1
-/oeminfo            emmc        /dev/block/platform/ff3c0000.ufs/by-name/oeminfo              flags=slotselect;display="OEMInfo";backup=1
-/nvme               emmc        /dev/block/platform/ff3c0000.ufs/by-name/nvme                 flags=slotselect;display="NVMe";backup=1
-/modemnvm_update    emmc        /dev/block/platform/ff3c0000.ufs/by-name/modemnvm_update      flags=slotselect;display="ModemNVM_Update";backup=1
-/modemnvm_cust      emmc        /dev/block/platform/ff3c0000.ufs/by-name/modemnvm_cust        flags=slotselect;display="ModemNVM_Cust";backup=1
-/modem_fw			emmc		/dev/block/platform/ff3c0000.ufs/by-name/modem_fw	          flags=slotselect;backup=1;display="Modem_FW"
-/modem_secure		emmc		/dev/block/platform/ff3c0000.ufs/by-name/modem_secure         flags=slotselect;backup=1;display="Modem_Secure"
+/erecovery_kernel   emmc        /dev/block/platform/hi_mci.0/by-name/erecovery_kernel     flags=display="eRecovery_Kernel";backup=1;flashimg=1
+/oeminfo            emmc        /dev/block/platform/hi_mci.0/by-name/oeminfo              flags=display="OEMInfo";backup=1;flashimg=1
+/nvme               emmc        /dev/block/platform/hi_mci.0/by-name/nvme                 flags=display="NVMe";backup=1
+/modemnvm_update    emmc        /dev/block/platform/hi_mci.0/by-name/modemnvm_update      flags=display="ModemNVM_Update";backup=1
+/modemnvm_cust      emmc        /dev/block/platform/hi_mci.0/by-name/modemnvm_cust        flags=display="ModemNVM_Cust";backup=1
+/modem_fw			emmc		/dev/block/platform/hi_mci.0/by-name/modem_fw	          flags=backup=1;display="Modem_FW"
+/modem_secure		emmc		/dev/block/platform/hi_mci.0/by-name/modem_secure         flags=backup=1;display="Modem_Secure"
 
-# Logical (super) partitions
-/system             emmc        /dev/block/mapper/system                                      flags=slotselect;logical;display="System";backup=1;flashimg=1
-/vendor             emmc        /dev/block/mapper/vendor                                      flags=slotselect;logical;display="Vendor";backup=1;flashimg=1
-/odm                emmc        /dev/block/mapper/odm                                         flags=slotselect;logical;display="ODM";backup=1;flashimg=1
-/cust               emmc        /dev/block/mapper/cust                                        flags=slotselect;logical;display="Cust";backup=1;flashimg=1
-/hw_product         emmc        /dev/block/mapper/hw_product                                  flags=slotselect;logical;display="HW_Product";backup=1;flashimg=1
+# Direct image flashing partitions
+/system_image             emmc        /dev/block/platform/hi_mci.0/by-name/system                                      flags=logical;display="System image";backup=1;flashimg=1
+/vendor_image             emmc        /dev/block/platform/hi_mci.0/by-name/vendor                                      flags=logical;display="Vendor image";backup=1;flashimg=1
+/odm_image                emmc        /dev/block/platform/hi_mci.0/by-name/odm                                         flags=logical;display="ODM image";backup=1;flashimg=1
+/cust_image               emmc        /dev/block/platform/hi_mci.0/by-name/cust                                        flags=logical;display="Cust image";backup=1;flashimg=1
+/product_image               emmc        /dev/block/platform/hi_mci.0/by-name/product                                        flags=logical;display="Product image";backup=1;flashimg=1
+
+# System partitions (leave them as ext4 for now)
+/system_root				ext4		/dev/block/platform/hi_mci.0/by-name/system                  flags=display="System";backup=1;wipeingui
+/vendor				ext4		/dev/block/platform/hi_mci.0/by-name/vendor                  flags=display="Vendor";backup=1;wipeingui
+/odm				ext4		/dev/block/platform/hi_mci.0/by-name/odm                     flags=display="ODM";backup=1;wipeingui
+/product			ext4        /dev/block/platform/hi_mci.0/by-name/product                 flags=display="Product";backup=1;wipeingui
 
 # Removable storage
-/usb_otg			auto 		/dev/block/sde1                    /dev/block/sde             flags=fsflags=utf8;display="USB Mass Storage";storage;wipeingui;removable
-/external_sd		auto 		/dev/block/mmcblk1p1               /dev/block/mmcblk1         flags=fsflags=utf8;display="MicroSD";storage;wipeingui;removable
+/usb_otg			auto 		/dev/block/sde1                    /dev/block/sde             flags=fsflags=utf8;display="USB OTG";storage;wipeingui;removable
+/external_sd		auto 		/dev/block/mmcblk1p1               /dev/block/mmcblk1         flags=fsflags=utf8;display="Micro SD Card";storage;wipeingui;removable
