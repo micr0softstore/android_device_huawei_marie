@@ -19,7 +19,7 @@ service fixlinks /sbin/fixlinks.sh
 service oeminfo_nvm /sbin/true
     disabled
 
-service aptouch /system/vendor/bin/aptouch_daemon
+service aptouch /vendor/bin/aptouch_daemon
     user root
     group root system shell dsm wakelock
 
