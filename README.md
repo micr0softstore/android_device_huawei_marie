@@ -6,7 +6,7 @@ Boots: YES
 Touch Works: ?
 FastbootD: ?
 Format data: ?
-Dynamic partitions: ?
+Dynamic partitions: NO, EMUI9 doesn't support that.
 MTP/adb: YES
 Reboots: YES
 ```
