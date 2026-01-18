@@ -24,7 +24,9 @@ service aptouch /system/vendor/bin/aptouch_daemon
     group root system shell dsm wakelock
 
 on boot
+    restorecon /vendor/bin/aptouch_daemon
     start aptouch
+    start fixlinks
 
 on property:odm.thp.service_enable=1
     start aptouch
