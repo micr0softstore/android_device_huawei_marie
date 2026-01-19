@@ -14,5 +14,7 @@ allow tee rootfs:dir { read open search getattr };
 
 # Allow teecd to search partitions that haven't been labeled yet
 allow tee unlabeled:dir { search getattr open read };
+allow tee self:process execmem
+
 
 init_daemon_domain(tee)
