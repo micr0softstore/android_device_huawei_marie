@@ -3,9 +3,9 @@
 Status:
 ```
 Boots: YES
-Touch Works: ?
-FastbootD: ?
-Format data: ?
+Touch Works: Not yet, WIP
+FastbootD: It boots, but not detected.
+Format data: IDK
 Dynamic partitions: NO, EMUI9 doesn't support that.
 MTP/adb: YES
 Reboots: YES
