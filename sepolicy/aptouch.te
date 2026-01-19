@@ -14,4 +14,4 @@ allow aptouch self:netlink_kobject_uevent_socket create
 allow init aptouch:process transition;
 allow init aptouch_exec:file relabelto;
 allow init rootfs:file { entrypoint execute read open getattr };
-domain_auto_trans(init, aptouch_exec, aptouch)
+domain_auto_trans(init, aptouch_exec, aptouch);
