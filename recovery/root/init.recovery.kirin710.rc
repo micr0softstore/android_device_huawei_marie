@@ -17,6 +17,8 @@ service oeminfo_nvm /sbin/true
 on boot
     restorecon /vendor/bin/aptouch_daemon
     start aptouch
+    setprop ro.boot.bootdevice hi_mci.0
+    symlink /dev/block/platform/${ro.boot.bootdevice} /dev/block/bootdevice
 
 # For touchscreen
 service aptouch /vendor/bin/aptouch_daemon
