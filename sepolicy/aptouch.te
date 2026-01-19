@@ -12,6 +12,7 @@ allow aptouch vendor_default_prop:property_service set;
 allow aptouch self:capability sys_nice;
 allow aptouch self:netlink_kobject_uevent_socket create;
 allow aptouch self:netlink_kobject_uevent_socket bind;
+allow aptouch self:netlink_kobject_uevent_socket read;
 allow init aptouch:process transition;
 allow init aptouch_exec:file relabelto;
 allow init rootfs:file { entrypoint execute read open getattr };
