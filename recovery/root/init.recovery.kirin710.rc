@@ -13,22 +13,3 @@ on late-init
 
 service oeminfo_nvm /sbin/true
     disabled
-
-on boot
-    restorecon /vendor/bin/aptouch_daemon
-    start aptouch
-    setprop ro.boot.bootdevice hi_mci.0
-    symlink /dev/block/platform/${ro.boot.bootdevice} /dev/block/bootdevice
-
-# For touchscreen
-service aptouch /vendor/bin/aptouch_daemon
-    user root
-    group root system shell wakelock
-    disabled
-    seclabel u:r:aptouch:s0
-
-on property:odm.thp.service_enable=1
-    start aptouch
-
-on property:odm.thp.service_enable=0
-    stop aptouch
