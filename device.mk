@@ -11,6 +11,9 @@ LOCAL_PATH := device/huawei/marie
 PRODUCT_SHIPPING_API_LEVEL := 29
 PRODUCT_USE_DYNAMIC_PARTITIONS := false
 
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_RETROFIT_DYNAMIC_PARTITIONS := true
+
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     android.hardware.fastboot@1.0-impl-mock.recovery \
@@ -18,5 +21,5 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.fastbootd.available=true \
-    ro.boot.dynamic_partitions_retrofit=false \
-    ro.boot.dynamic_partitions=false
+    ro.boot.dynamic_partitions_retrofit=true \
+    ro.boot.dynamic_partitions=true
