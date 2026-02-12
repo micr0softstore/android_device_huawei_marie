@@ -13,7 +13,7 @@ Decryption: No, not in the near future
 ```
 ## Device specifications
 
-![P30 Lite]([https://fdn2.gsmarena.com/vv/bigpic/huawei-p30-lite-.jpg]) 
+![P30 Lite](https://fdn2.gsmarena.com/vv/bigpic/huawei-p30-lite-.jpg)
 
 Component   | Description
 -------:|:-------------------------
