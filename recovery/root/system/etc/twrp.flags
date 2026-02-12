@@ -23,26 +23,27 @@
 /modemnvm_cust      emmc        /dev/block/platform/hi_mci.0/by-name/modemnvm_cust        flags=display="ModemNVM_Cust";backup=1
 /modem_fw			emmc		/dev/block/platform/hi_mci.0/by-name/modem_fw	          flags=backup=1;display="Modem_FW"
 /modem_secure		emmc		/dev/block/platform/hi_mci.0/by-name/modem_secure         flags=backup=1;display="Modem_Secure"
+/super    emmc      /dev/block/bootdevice/by-name/system                   flags=backup=1;display="Super"
 
 
 # System partitions (leave them as ext4 for now)
-/system_root  ext4        /dev/block/mapper/system                                      flags=slotselect;logical;display="System";backup=1;flashimg=0
-/system_ext   ext4        /dev/block/mapper/system_ext                                  flags=slotselect;logical;display="System_Ext";backup=1;flashimg=0
-/vendor       ext4        /dev/block/mapper/vendor                                      flags=slotselect;logical;display="Vendor";backup=1;flashimg=0
-/odm          ext4        /dev/block/mapper/odm                                         flags=slotselect;logical;display="ODM";backup=1;flashimg=0
-/product      ext4        /dev/block/mapper/product                                     flags=slotselect;logical;display="Product";backup=1;flashimg=0
-/cust         ext4        /dev/block/mapper/cust                                        flags=slotselect;logical;display="Cust";backup=1;flashimg=0
-/hw_product   ext4        /dev/block/mapper/hw_product                                  flags=slotselect;logical;display="HW_Product";backup=1;flashimg=0
+/system_root  ext4        /dev/block/mapper/system                                      flags=logical;display="System";backup=1;flashimg=0
+/system_ext   ext4        /dev/block/mapper/system_ext                                  flags=logical;display="System_Ext";backup=1;flashimg=0
+/vendor       ext4        /dev/block/mapper/vendor                                      flags=logical;display="Vendor";backup=1;flashimg=0
+/odm          ext4        /dev/block/mapper/odm                                         flags=logical;display="ODM";backup=1;flashimg=0
+/product      ext4        /dev/block/mapper/product                                     flags=logical;display="Product";backup=1;flashimg=0
+/cust         ext4        /dev/block/mapper/cust                                        flags=logical;display="Cust";backup=1;flashimg=0
+/hw_product   ext4        /dev/block/mapper/hw_product                                  flags=logical;display="HW_Product";backup=1;flashimg=0
 
 
 # Logical (super) partitions
-/system_image       emmc        /dev/block/mapper/system                                      flags=slotselect;logical;display="System Image";backup=1;flashimg=1
-/system_ext_image   emmc        /dev/block/mapper/system_ext                                  flags=slotselect;logical;display="System_Ext Image";backup=1;flashimg=1
-/vendor_image       emmc        /dev/block/mapper/vendor                                      flags=slotselect;logical;display="Vendor Image";backup=1;flashimg=1
-/odm_image          emmc        /dev/block/mapper/odm                                         flags=slotselect;logical;display="ODM Image";backup=1;flashimg=1
-/product_image      emmc        /dev/block/mapper/product                                     flags=slotselect;logical;display="Product Image";backup=1;flashimg=1
-/cust_image         emmc        /dev/block/mapper/cust                                        flags=slotselect;logical;display="Cust Image";backup=1;flashimg=1
-/hw_product_image   emmc        /dev/block/mapper/hw_product                                  flags=slotselect;logical;display="HW_Product Image";backup=1;flashimg=1
+/system_image       emmc        /dev/block/mapper/system                                      flags=logical;display="System Image";backup=1;flashimg=1
+/system_ext_image   emmc        /dev/block/mapper/system_ext                                  flags=logical;display="System_Ext Image";backup=1;flashimg=1
+/vendor_image       emmc        /dev/block/mapper/vendor                                      flags=logical;display="Vendor Image";backup=1;flashimg=1
+/odm_image          emmc        /dev/block/mapper/odm                                         flags=logical;display="ODM Image";backup=1;flashimg=1
+/product_image      emmc        /dev/block/mapper/product                                     flags=logical;display="Product Image";backup=1;flashimg=1
+/cust_image         emmc        /dev/block/mapper/cust                                        flags=logical;display="Cust Image";backup=1;flashimg=1
+/hw_product_image   emmc        /dev/block/mapper/hw_product                                  flags=logical;display="HW_Product Image";backup=1;flashimg=1
 
 # Removable storage
 /usb_otg			auto 		/dev/block/sde1                    /dev/block/sde             flags=fsflags=utf8;display="USB OTG";storage;wipeingui;removable

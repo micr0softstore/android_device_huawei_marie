@@ -3,3 +3,4 @@
 # ==============================================
 
 type recovery_device, dev_type;
+typeattribute system_block_device super_block_device_type;
