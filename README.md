@@ -9,6 +9,7 @@ Format data: Not yet
 Dynamic partitions: WIP retrofit, not yet compleat
 MTP/adb: YES
 Reboots: YES
+Decryption: No, not in the near future
 ```
 
 ```
